@@ -1,7 +1,13 @@
-a = [1,2,3,4]
-for x in a:
-    a = [9,8,7]
-    print(x)
-for x in a:
-    a = [9,8,7]
-    print(x)
+def delete(t, x):
+
+    new_branches = []
+    for b in t.branches:
+        n=b.branches
+        if b.label == x:
+            new_branches.extend(n)
+        else: 
+            delete(b,x)
+            new_branches.extend([b])
+
+    
+    t.branches = new_branches
